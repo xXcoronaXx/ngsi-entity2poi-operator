@@ -40,6 +40,7 @@
     });
 
     var processEntity = function processEntity(entity) {
+        entity = JSON.parse(entity); // FIX GEOJSON
         var coordinates = null;
         var coord_parts = null;
         var coordinates_pref = MashupPlatform.prefs.get('coordinates_attr');
@@ -74,7 +75,7 @@
         }
 
         if (coordinates) {
-            return entity2poi(entity, coordinates);
+            return JSON.stringify(entity2poi(entity, coordinates)); // FIX Geojson
         }
     };
 
